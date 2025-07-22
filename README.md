@@ -1,5 +1,65 @@
 # MarketMind
-A modular mult├── README.md                          # You are here
+
+A modular multi-agent framework for generating real-ti    ├── streamlit_app.py              # Streamlit frontend
+    ├── gemini_cache.json             # Gemini API cache financial insights, sentiment analytics, and stock visualizations — built using Python, NLTK, Google Cloud, and Streamlit.
+
+---
+
+## What is MarketMind?
+
+**MarketMind** is an intelligent multi-agent system designed to streamline comprehensive financial market analysis. It orchestrates specialized AI agents that work collaboratively to fetch live market data, analyze news sentiment, generate actionable insights, and create compelling visualizations for both Indian and global stocks.
+
+The system operates asynchronously using a supervisor-agent architecture, making it ideal for building intelligence into financial dashboards, research tools, algorithmic trading systems, or data science pipelines.
+
+---
+
+## Key Features
+
+### Real-Time Market Data Processing
+- **Live Stock Data**: Fetches real-time stock prices, volumes, and trading metrics using Yahoo Finance API
+- **Multi-Market Support**: Supports both Indian stocks (NSE/BSE) and global markets (NASDAQ, NYSE, etc.)
+- **Historical Analysis**: Retrieves historical price data for trend analysis and technical indicators
+- **Data Persistence**: Optional BigQuery integration for storing and querying large-scale market data
+
+### Advanced Sentiment Analysis
+- **News Aggregation**: Pulls latest financial news from multiple sources including Bloomberg, Reuters, Economic Times, and more
+- **VADER Sentiment Scoring**: Uses NLTK's VADER sentiment analyzer for accurate financial news sentiment classification
+- **Company-Specific Analysis**: Maps stock tickers to company names for precise news filtering
+- **Sentiment Trends**: Tracks sentiment changes over time to identify market mood shifts
+
+### AI-Powered Insights Generation
+- **Google Gemini Integration**: Leverages Google's Gemini AI for generating sophisticated investment insights
+- **Divergence Detection**: Identifies discrepancies between price movements and sentiment signals
+- **Risk Assessment**: Analyzes potential risks based on sentiment-price correlations
+- **Investment Recommendations**: Provides Buy/Hold/Sell recommendations based on multi-factor analysis
+
+### Comprehensive Visualizations
+- **Candlestick Charts**: Professional OHLCV candlestick charts with technical overlays
+- **Sentiment Distribution**: Interactive pie charts showing positive/negative/neutral sentiment ratios
+- **Price-Volume Analysis**: Dual-axis charts correlating price movements with trading volumes
+- **Trend Visualizations**: Line charts with moving averages and trend indicators
+
+### Multi-Agent Architecture
+- **Supervisor Agent**: Orchestrates workflow execution and manages inter-agent communication
+- **Market Data Agent**: Specialized in fetching and processing stock market data
+- **Sentiment Agent**: Handles news retrieval and sentiment analysis
+- **Insight Agent**: Generates AI-powered investment insights and recommendations
+- **Visualization Agent**: Creates charts, graphs, and visual analytics
+
+### Production-Ready Features
+- **Graceful Degradation**: Continues operation even when some data sources are unavailable
+- **Caching System**: Intelligent caching for API responses to optimize performance and costs
+- **Error Handling**: Robust retry mechanisms and error recovery
+- **Scalable Design**: Modular architecture allows easy addition of new agents and data sources
+- **Cloud Integration**: Built for deployment on Google Cloud Platform with BigQuery support
+
+---
+
+## Project Structure
+
+```
+MarketMind/
+├── README.md                          # You are here
 ├── .env                              # Add your API keys here
 ├── Dockerfile                        # Docker configuration
 ├── requirements.txt                  # Python dependencies
@@ -9,44 +69,6 @@ A modular mult├── README.md                          # You are here
 │
 └── FinSight-Agents/                  # Main application directory
     ├── main.py                       # Main entry point
-    ├── streamlit_app.py              # Streamlit frontend
-    ├── gemini_cache.json             # Gemini API cacheework for generating real-time financial insights, sentiment analytics, and stock visualizations — built using Python, NLTK, Google Cloud, and Streamlit.
-
----
-
-## What is MarketMind?
-
-**MarketMind** is a multi-agent system designed to streamline the analysis of financial markets. It brings together live market data, news sentiment, and technical indicators to produce clear and actionable insights for Indian and global stocks.
-
-This system operates asynchronously using a supervisor-agent architecture and is ideal for building intelligence into financial dashboards, research tools, or data science pipelines.
-
----
-
-## Features
-
-- Fetches live stock prices and trends
-- Performs sentiment analysis on the latest news
-- Produces visualizations like candlesticks, pie charts, and technical overlays
-- Uses agents that collaborate and pass data to one another
-- Automatically adapts if no data is available (graceful degradation)
-- Built to run locally with optional cloud storage
-
----
-
-## Project Structure
-
-```
-MarketMind/
-├── README.md                          # 🔹 You are here
-├── .env                              # 🔐 Add your API keys here
-├── Dockerfile                        # 🐳 Docker configuration
-├── requirements.txt                  # 📦 Python dependencies
-├── architecture.png                  # 📈 System architecture diagram
-├── gemini_cache.json                # 🗄️ Gemini API cache
-├── new_re.txt                        # 📄 Additional notes
-│
-└── FinSight-Agents/                  # 🤖 Main application directory
-    ├── main.py                       # 🚀 Main entry point
     ├── streamlit_app.py              # 🖥️ Streamlit frontend
     ├── gemini_cache.json             # �️ Gemini API cache
     │
@@ -90,6 +112,39 @@ MarketMind/
         ├── test_sentiment_agent.py   # Sentiment analysis tests
         └── test_utils.py             # Utility tests
 ```
+
+---
+
+## How MarketMind Works
+
+### Agent Workflow
+MarketMind operates through a coordinated workflow of specialized agents:
+
+1. **Supervisor Agent** initializes and orchestrates the entire analysis pipeline
+2. **Market Data Agent** fetches real-time stock prices and historical data for specified companies
+3. **Sentiment Agent** retrieves latest financial news and performs sentiment analysis using VADER
+4. **Insight Agent** combines market data and sentiment to generate AI-powered investment insights
+5. **Visualization Agent** creates charts and visual representations of the analysis
+
+### Data Flow
+```
+Input: Company Names/Tickers
+    ↓
+Market Data Agent → Live Stock Prices, Volume, OHLC Data
+    ↓
+Sentiment Agent → Financial News + Sentiment Scores
+    ↓
+Insight Agent → AI Analysis + Investment Recommendations
+    ↓
+Visualization Agent → Charts, Graphs, Visual Analytics
+    ↓
+Output: Comprehensive Financial Report
+```
+
+### User Interfaces
+- **Command Line**: Run `python main.py` for batch analysis and console output
+- **Streamlit Web App**: Interactive dashboard with real-time charts and insights
+- **Programmatic API**: Use individual agents in your own Python applications
 
 ---
 
@@ -152,6 +207,34 @@ streamlit run streamlit_app.py
 ```
 
 Use this to explore company insights visually using the dashboard.
+
+---
+
+## Use Cases & Applications
+
+### Financial Professionals
+- **Investment Research**: Automated analysis of multiple stocks with sentiment-driven insights
+- **Risk Assessment**: Early detection of sentiment-price divergences indicating potential risks
+- **Portfolio Management**: Real-time monitoring of holdings with news sentiment tracking
+- **Market Analysis**: Comprehensive overview of market conditions across different sectors
+
+### Algorithmic Trading
+- **Signal Generation**: Combine technical indicators with sentiment signals for trading decisions
+- **Backtesting**: Historical sentiment analysis for strategy validation
+- **Risk Management**: Sentiment-based position sizing and risk adjustment
+- **Market Screening**: Automated screening of stocks based on sentiment and price patterns
+
+### Data Scientists & Developers
+- **Financial ML Models**: Rich dataset generation for machine learning applications
+- **Dashboard Development**: Pre-built components for financial applications
+- **Research Tools**: Automated data collection and analysis for academic research
+- **API Integration**: Modular agents for building custom financial applications
+
+### Business Intelligence
+- **Executive Dashboards**: Real-time market insights for decision makers
+- **Competitor Analysis**: Track sentiment and performance of competitor stocks
+- **Market Timing**: Identify optimal entry/exit points based on multi-factor analysis
+- **Reporting Automation**: Automated generation of financial reports and insights
 
 ---
 
