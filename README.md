@@ -1,7 +1,6 @@
 # MarketMind
 
-A modular multi-agent framework for generating real-ti    ├── streamlit_app.py              # Streamlit frontend
-    ├── gemini_cache.json             # Gemini API cache financial insights, sentiment analytics, and stock visualizations — built using Python, NLTK, Google Cloud, and Streamlit.
+A modular multi-agent framework for generating real-time financial insights, sentiment analytics, and stock visualizations — built using Python, NLTK, Google Cloud, and Streamlit.
 
 ---
 
