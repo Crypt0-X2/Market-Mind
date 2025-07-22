@@ -66,12 +66,12 @@ MarketMind/
 ├── gemini_cache.json                # Gemini API cache
 ├── new_re.txt                        # Additional notes
 │
-└── FinSight-Agents/                  # Main application directory
+└── MarketMind-agents/                # Main application directory
     ├── main.py                       # Main entry point
-    ├── streamlit_app.py              # 🖥️ Streamlit frontend
-    ├── gemini_cache.json             # �️ Gemini API cache
+    ├── streamlit_app.py              # Streamlit frontend
+    ├── gemini_cache.json             # Gemini API cache
     │
-    ├── agents/                       # Core agents
+    ├── agents/                       # Agent modules
     │   ├── __init__.py
     │   ├── supervisor_agent.py       # Orchestrates other agents
     │   ├── market_data_agent.py      # Fetches stock data
@@ -154,7 +154,7 @@ Output: Comprehensive Financial Report
 From the root directory (`MarketMind/`):
 
 ```bash
-cd FinSight-Agents
+cd MarketMind-agents
 pip install -r requirements.txt
 ```
 

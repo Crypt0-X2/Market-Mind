@@ -31,4 +31,4 @@ EXPOSE 8501
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
 # Run the app (change to your entrypoint if needed)
-CMD ["streamlit", "run", "FinSight-Agents/test_main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "MarketMind-agents/streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]

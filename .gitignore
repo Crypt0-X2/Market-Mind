@@ -29,4 +29,4 @@ htmlcov/
 .pytest_cache/
 
 # Generated files   
-FinSight-Agents/data/processed/
+MarketMind-agents/data/processed/
